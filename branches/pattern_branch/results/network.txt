@@ -1,0 +1,20 @@
+PatternCNN(
+  (pattern_cnn): Sequential(
+    (0): Conv1d(5, 1200, kernel_size=(11,), stride=(1,))
+    (1): ReLU(inplace=True)
+    (2): MaxPool1d(kernel_size=290, stride=1, padding=0, dilation=1, ceil_mode=False)
+    (3): Dropout(p=0.5, inplace=False)
+    (4): Flatten(start_dim=1, end_dim=-1)
+    (5): Linear(in_features=1200, out_features=1200, bias=True)
+    (6): ReLU(inplace=True)
+    (7): Dropout(p=0.5, inplace=False)
+    (8): Linear(in_features=1200, out_features=1, bias=True)
+    (9): Sigmoid()
+  )
+)
+
+Train accuracy: 0.9899313110627587
+Validation accuracy: 0.9733691946359573
+Test accuracy: 0.9740161357524336
+
+Best model according to validation: pattern_branch_do_5_lr_001_up.pth

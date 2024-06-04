@@ -1,0 +1,28 @@
+CustomCNN(
+  (custom_cnn): Sequential(
+    (0): InceptionLayer(
+      (branch1): Sequential(
+        (0): Conv1d(5, 500, kernel_size=(9,), stride=(1,), padding=(2,))
+        (1): ReLU(inplace=True)
+      )
+      (branch2): Sequential(
+        (0): Conv2d(1, 500, kernel_size=(5, 5), stride=(1, 1))
+        (1): ReLU(inplace=True)
+      )
+    )
+    (1): AvgPool1d(kernel_size=(296,), stride=(1,), padding=(0,))
+    (2): Dropout(p=0.1, inplace=False)
+    (3): Flatten(start_dim=1, end_dim=-1)
+    (4): Linear(in_features=1000, out_features=1000, bias=True)
+    (5): ReLU(inplace=True)
+    (6): Dropout(p=0.1, inplace=False)
+    (7): Linear(in_features=1000, out_features=1, bias=True)
+    (8): Sigmoid()
+  )
+)
+
+Train accuracy: 0.9820858872439572
+Validation accuracy: 0.982006212591863
+Test accuracy: 0.9816294837316768
+
+Best model according to validation: custom_branch_do_1_lr_001_noup.pth

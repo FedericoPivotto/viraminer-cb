@@ -1,0 +1,20 @@
+FrequencyCNN(
+  (frequency_cnn): Sequential(
+    (0): Conv1d(5, 1000, kernel_size=(8,), stride=(1,))
+    (1): ReLU(inplace=True)
+    (2): AvgPool1d(kernel_size=(293,), stride=(1,), padding=(0,))
+    (3): Dropout(p=0.1, inplace=False)
+    (4): Flatten(start_dim=1, end_dim=-1)
+    (5): Linear(in_features=1000, out_features=1000, bias=True)
+    (6): ReLU(inplace=True)
+    (7): Dropout(p=0.1, inplace=False)
+    (8): Linear(in_features=1000, out_features=1, bias=True)
+    (9): Sigmoid()
+  )
+)
+
+Train accuracy: 0.9820527041824879
+Validation accuracy: 0.9822335025380711
+Test accuracy: 0.9815158516722852
+
+Best model according to validation: frequency_branch_do_1_lr_001_noup.pth

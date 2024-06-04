@@ -1,0 +1,45 @@
+FrequencyCustomCNN(
+  (frequency_cnn): FrequencyCNN(
+    (frequency_cnn): Sequential(
+      (0): Conv1d(5, 1000, kernel_size=(8,), stride=(1,))
+      (1): ReLU(inplace=True)
+      (2): AvgPool1d(kernel_size=(293,), stride=(1,), padding=(0,))
+      (3): Dropout(p=0.1, inplace=False)
+      (4): Flatten(start_dim=1, end_dim=-1)
+      (5): Linear(in_features=1000, out_features=1000, bias=True)
+      (6): ReLU(inplace=True)
+    )
+  )
+  (custom_cnn): CustomCNN(
+    (custom_cnn): Sequential(
+      (0): InceptionLayer(
+        (branch1): Sequential(
+          (0): Conv1d(5, 600, kernel_size=(9,), stride=(1,), padding=(2,))
+          (1): ReLU(inplace=True)
+        )
+        (branch2): Sequential(
+          (0): Conv2d(1, 600, kernel_size=(5, 5), stride=(1, 1))
+          (1): ReLU(inplace=True)
+        )
+      )
+      (1): MaxPool1d(kernel_size=296, stride=1, padding=0, dilation=1, ceil_mode=False)
+      (2): Dropout(p=0.5, inplace=False)
+      (3): Flatten(start_dim=1, end_dim=-1)
+      (4): Linear(in_features=1200, out_features=1200, bias=True)
+      (5): ReLU(inplace=True)
+    )
+  )
+  (frequency_custom): Sequential(
+    (0): Dropout(p=0.1, inplace=False)
+    (1): Linear(in_features=2200, out_features=1, bias=True)
+    (2): Sigmoid()
+  )
+)
+
+Train accuracy: 0.9852619802702998
+Validation accuracy: 0.9838245321615274
+Test accuracy: 0.9833718419756827
+
+Precise AUROC: 0.917716
+
+Best model according to validation: frequency_custom_do_1_lr_001_up.pth
